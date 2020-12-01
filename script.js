@@ -5,12 +5,19 @@
 var cardCase=[];
 var countf=true;
 var time;
+
 var timerFlg=false;
 var timerFlg2=false;
+
 var titleMcflg=false;
 var titleMcflg2=false;
+var titleMcflg3=false;
+
+
 var irohaflg=false;
 var kaguyaflg=false;
+var shianflg=false;
+
 var lastFlg=true;
 var cardss;
 var cardss2;
@@ -21,12 +28,19 @@ var startT;
 var cardIn=0;
 var text;
 var classname;
+
 var newtime=[];
 var newtime2=[];
+var newtime3=[];
 
-lastFlg2=true;
+
+var lastFlg2=true;
+var lastflg3=true;
+
 var images=[];
 var images2=[];
+var images3=[];
+
 var soundArr=[
   'voice/iroha1.mp3',
   'voice/iroha2.mp3',
@@ -73,6 +87,24 @@ var kaguyaSE=[
   'voice/kaguya20.mp3'
 ];
 
+var shianSE=[
+];
+
+const finishBtn3=document.getElementById('finish3');
+
+finishBtn3.addEventListener('click',function(){
+  endSE.src=endBGM[2];
+  endSE.load();
+  endSE.loop=true;
+  endSE.play();
+
+$(function(){
+  $('#cardnone').slideUp(1000);
+  $('#finish3').hide();
+  $('#shianResult').slideDown(1000);
+  $('.close').remove();
+});
+});
 
 const finishBtn2=document.getElementById('finished');
 
@@ -117,6 +149,8 @@ for(var iij=1;iij<=20;iij++){
 
 const timeI=document.getElementById('timeI');
 const timeK=document.getElementById('timeK');
+const timeS=document.getElementById('timeS');
+
 
 const titleBtn=document.getElementById('titleBtn');
 const cardBox=document.getElementById('cardBox');
@@ -166,12 +200,34 @@ $('.kaguya').on('click',function(){
   shuffle2(kaguyaSE,images2);
 });//かぐや編onclick
 
+//ここからオールスター編
+$('.shian').on('click',function(){
+
+  classname="shianback";
+  kaguyaflg=false;
+  irohaflg=false;
+  shianflg=true;
+
+  pageEffect();
+
+  if(titleMcflg2){
+    endSE.pause();
+    endSE.currentTime=0;
+  }
+
+  if(titleMcflg) titleMc.pause();
+
+  sample1(classname);
+  shuffle2(shianSE,images3);//ここに使う音声画像を入れる
+});
+
 
 function pageEffect(){
 $(function(){
   $('#resultWp').hide();
   $('#kaguyaResult').hide();
   $('#irohaResult').hide();
+  $('#shianResult').hide();
   $('#cardnone').fadeIn(1000);
   $('h4').show();
 });
@@ -282,8 +338,10 @@ var div=e.target;
 
 if(irohaflg){
   text="bg";
-}else{
+}else if(kaguyaflg){
   text="bgk";
+}else{
+  text="bgs";
 }
 
 if(timerFlg) return;
@@ -345,7 +403,7 @@ if(timerFlg2){
                 $('#finish').fadeIn();
               });
 
-          }else{
+          }else if(kaguyaflg){
             var timearr2=[];
 
             timearr2.push((timearr[0]));
@@ -358,8 +416,19 @@ if(timerFlg2){
             $(function(){
               $('#finished').fadeIn();
             });
+          }else{
+            var timearr3=[];
 
+            timearr3.push((timearr[0]));
+            timearr3.push((timearr[1]));
+            timearr3.push((timearr[2]));
+            timearr3.push((timearr[3]));
 
+            skindevelop(timearr3,lastFlg3,timeS,newtime3);
+
+            $(function(){
+              $('#finish3').fadeIn();
+            });
           }
             cardIn=0;
             titleMcflg2=true;
@@ -393,11 +462,15 @@ if(timerFlg2){
 //タイムの比較
 const record=document.getElementById('record');
 const record2=document.getElementById('record2');
+const record3=document.getElementById('record3');
+
 
 function skindevelop(timearr,flg,times,newtime){
 
 record.className='new-record-none';
 record2.className='new-record-none';
+record3.className='new-record-none';
+
 
 clearInterval(time);
 times.innerHTML='CLEAR! '+ timearr[3];
@@ -431,9 +504,13 @@ flg=false;
 function newRecord(timearr,newtime){
   record.className='newRecords';
   record2.className='newRecords';
+  record3.className='newRecords';
+
 
 timeI.innerHTML=timearr[3];
 timeK.innerHTML=timearr[3];
+timeS.innerHTML=timearr[3];
+
 
 newtime.splice(0,3);
 newtime.push(timearr[0]);

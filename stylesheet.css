@@ -278,6 +278,11 @@ html, body {
           transition-delay: .4s;
 }
 
+.flex-skin .effect:nth-of-type(3) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+
 .effect-scroll {
   opacity: 1;
   -webkit-transform: translate(0, 0);
