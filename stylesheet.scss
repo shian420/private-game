@@ -1,0 +1,604 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.clear-left {
+    clear: left;
+  }
+*{
+  font-family: system-ui,sans-serif;
+}
+html,body{
+    width: 100%;
+}
+*{
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+
+.firstDisplay{
+  background-color: rgb(250, 238, 207);
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+.like{
+  user-select: none;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  transition: background-color .6s ;
+}
+.like:hover{
+  background-color: rgba(0, 0, 255, 0);
+}
+.like [type="checkbox"]{
+  display: none;
+}
+.heart{
+  position: relative;
+  top: 1px;
+  user-select: none;
+  font-size: 5rem;
+  color: gray;
+}
+.like [type="checkbox"]:checked~.heart{
+  animation: heart .6s forwards;
+}
+
+@keyframes heart{
+  0%{
+    transform: scale(0);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+    color: red;
+  }
+}
+.wa{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: red;
+  transform: scale(0);
+}
+.title-fixed{
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.like [type="checkbox"]:checked~.wa{
+  animation: wa .6s forwards;
+}
+@keyframes wa{
+  0%{
+    transform: scale(0);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.aline{
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+    p{
+        padding-bottom: 10px;
+        font-size: 1rem;
+    }
+    .non{
+        margin: 15px auto;
+        width: 190px;
+        height: 70px;
+        font-weight: bold;
+        background-color: red;
+        color: white;
+        display: block;
+        font-size: 1rem;
+        box-shadow: 2px 2px 2px 2px black;
+        animation: name alternate infinite .6s linear;
+    }
+}
+@keyframes name{
+  0%{
+    transform: translateX(-200px);
+    background-color: rgb(175, 220, 255);
+  }
+  50%{
+    transform: translateX(0px) scale(2,0.5) ;
+ }
+  100%{
+    transform: translateX(200px);
+    background-color: red;
+  }
+}
+
+
+.resultWrapper{
+    background-color: rgb(245, 235, 194);
+    width: 100%;
+    padding-bottom: 80px;
+}
+.resultNone{
+  background-color: rgb(245, 235, 194);
+  width: 100%;
+  padding-bottom: 80px;
+  display: none;
+}
+.p3{
+  font-size: 1.7rem;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 24px;
+  font-weight: bold;
+  font-family: fantasy;
+}
+.effect{
+  opacity: 0;
+  transform: translate(0,75px);
+  transition: all .4s ease-out;
+}
+.flex-skin .effect:nth-of-type(1){
+  transition-delay: .2s;
+}
+.flex-skin .effect:nth-of-type(2){
+  transition-delay: .4s;
+}
+.effect-scroll{
+  opacity: 1;
+ transform:translate(0,0);
+}
+.start{
+font-size: 1.4rem;
+text-align: center;
+padding-top: 10px;
+}
+.image{
+    width: 100%;
+    height:220px;
+}
+.irohaA{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.kaguyaA{
+    display: none;
+    object-fit: contain;
+}
+
+.imgContain{
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    background-color: rgb(241, 227, 171);
+}
+.startT{
+font-size: 1.7rem;
+padding-bottom: 18px;
+text-align: center;
+font-family: fantasy;
+}
+.p{
+    font-size: 1rem;
+    padding-bottom: 5px;
+
+}
+.p2{
+  text-align: center;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    font-size: 1rem;
+}
+
+.btn{
+  cursor: pointer;
+  user-select: none;
+    width: 90%;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 0 0 4px black;
+}
+.select-image-contain{
+  width: 100%;
+}
+.btn-back-color{
+  width: 100%;
+  height: 100px;
+  padding-top: 20px;
+  background-color: rgb(241, 227, 171);
+}
+.select-iroha{
+  width: 100%;
+  object-fit:contain;
+  vertical-align: top;
+}
+.iroha{
+    background-color: rgb(0, 0, 0);
+}
+.kaguya{
+    background-color: black;
+   padding: 0;
+}
+
+
+
+
+.card-container{
+  min-height: 100vh;
+    width: 100%;
+    background-color: rgb(82, 82, 82);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.displaynone{
+  display: none;
+}
+.card{
+  user-select: none;
+width:160px;
+height:160px;
+margin: auto;
+margin-bottom: 30px;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0);
+}
+.defaulut{
+    background-image: url('d.jpg');
+    background-size: contain;
+}
+.kaguyaBack{
+    background-image: url('image/back.jpg');
+    background-size: contain;
+  }
+  .endBtn,.endBtn2{
+    user-select: none;
+    text-align: center;
+    padding: 0 20px 0 20px;
+    width: 80%;
+    min-height: 80%;
+    height: auto;
+    background-color: rgb(104, 73, 73);
+    border: solid 2px white;
+    color: white;
+    font-size: 1.3rem;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+display: none;
+  }
+  span{
+    font-size: 1.5rem;
+  }
+h4{
+  user-select: none;
+
+    width: 100%;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    position: fixed;
+    bottom:0px ;
+    left: 0px;
+    background-color: rgba(255, 250, 240, 0.712);
+}
+.bg1,.bg2,.bg3,.bg4,.bg5,.bg6,.bg7,.bg8,.bg9,.bg10,.bg11,.bg12,.bg13,
+.bg14,.bg15,.bg16,.bg17,.bg18,.bg19,.bg20,
+.bgk1,.bgk2,.bgk3,.bgk4,.bgk5,.bgk6,.bgk7,.bgk8,.bgk9,.bgk10,
+.bgk11,.bgk12,.bgk13,.bgk14,.bgk15,.bgk16,.bgk17,.bgk18,.bgk19,.bgk20{
+  background-size: contain;
+}
+.bg1{
+  background-image: url('image/bg1.jpg');
+}
+.bg2{
+  background-image: url('image/bg2.jpg');
+}
+.bg3{
+  background-image: url('image/bg3.jpg');
+}
+.bg4{
+  background-image: url('image/bg4.jpg');
+}
+.bg5{
+  background-image: url('image/bg5.jpg');
+}
+.bg6{
+  background-image: url('image/bg6.jpg');
+}
+.bg7{
+  background-image: url('image/bg7.jpg');
+}
+.bg8{
+  background-image: url('image/bg8.jpg');
+}
+.bg9{
+  background-image: url('image/bg9.jpg');
+}
+.bg10{
+  background-image: url('image/bg10.jpg');
+}
+.bg11{
+  background-image: url('image/bg11.jpg');
+}
+.bg12{
+  background-image: url('image/bg12.jpg');
+}
+.bg13{
+  background-image: url('image/bg13.jpg');
+}
+.bg14{
+  background-image: url('image/bg14.jpg');
+}
+.bg15{
+  background-image: url('image/bg15.jpg');
+}
+.bg16{
+  background-image: url('image/bg16.jpg');
+}
+.bg17{
+  background-image: url('image/bg17.jpg');
+}
+.bg18{
+  background-image: url('image/bg18.jpg');
+}
+.bg19{
+  background-image: url('image/bg19.jpg');
+}
+.bg20{
+  background-image: url('image/bg20.jpg');
+}
+.bgk1{
+  background-image: url('image/bgk1.jpg');
+}
+.bgk2{
+  background-image: url('image/bgk2.jpg');
+}
+.bgk3{
+  background-image: url('image/bgk3.jpg');
+}
+.bgk4{
+  background-image: url('image/bgk4.jpg');
+}
+.bgk5{
+  background-image: url('image/bgk5.jpg');
+}
+.bgk6{
+  background-image: url('image/bgk6.jpg');
+}
+.bgk7{
+  background-image: url('image/bgk7.jpg');
+}
+.bgk8{
+  background-image: url('image/bgk8.jpg');
+}
+.bgk9{
+  background-image: url('image/bgk9.jpg');
+}
+.bgk10{
+  background-image: url('image/bgk10.jpg');
+}
+.bgk11{
+  background-image: url('image/bgk11.jpg');
+}
+.bgk12{
+  background-image: url('image/bgk12.jpg');
+}
+.bgk13{
+  background-image: url('image/bgk13.jpg');
+}
+.bgk14{
+  background-image: url('image/bgk14.jpg');
+}
+.bgk15{
+  background-image: url('image/bgk15.jpg');
+}
+.bgk16{
+  background-image: url('image/bgk16.jpg');
+}
+.bgk17{
+  background-image: url('image/bgk17.jpg');
+}
+.bgk18{
+  background-image: url('image/bgk18.jpg');
+}
+.bgk19{
+  background-image: url('image/bgk19.jpg');
+}
+.bgk20{
+    background-image: url('image/bgk20.jpg');
+}
+
+
+/*/終了画面*/
+
+.premove{
+    display: none;
+}
+
+
+
+.game-end-wrapper{
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-color:rgb(200, 223, 241) ;
+  padding-bottom: 30px;
+  display: none;
+}
+.img{
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.clear{
+  font-size: 2.2rem;
+  padding-top: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+.new-record,.newRecords,.time{
+  font-size: 2rem;
+  text-align: center;
+}
+.newRecords{ /*書きかける*/
+  font-weight: bold;
+  color: rgb(241, 69, 69);
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.new-record-none{
+  display: none;
+}
+.time{
+  font-size: 1.6rem;
+  padding-bottom: 20px;
+}
+.another,.another2{
+  font-size: 1.1rem;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.another2{
+  color: white;
+}
+.return-game{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid 2px white;
+}
+.irohaBG{
+  background-color: rgb(255, 98, 98);
+  box-shadow: none;
+}
+
+/*かぐやリザルト*/
+.kaguya-result{
+  color: white;
+  background-color: black;
+}
+.mouitidoBG{
+  background-color: rgb(255, 98, 98);
+}
+.kaguyaBG{
+  background-color: black;
+}
+
+
+@media (min-width:540px){
+  *{
+    font-size: 22px;
+}
+  .imgContain{
+    text-align: center;
+  }
+  .image{
+    width: 100%;
+    height:300px;
+}
+
+
+
+
+.img{
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+}
+
+
+}
+
+@media (min-width:1024px){
+  *{
+    font-size: 25px;
+}
+span{
+  font-size: 2.3rem;
+}
+  .image{
+    width: 100%;
+    height:480px;
+}
+.flex-skin{
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.btn{
+  margin-top: 20px;
+}
+.wide-moniter{
+  width: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+  .card{
+    width:194px;
+    height:194px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    }
+
+
+
+    .img{
+      width: 50%;
+    }
+    .return-game{
+      width: 50%;
+      margin-right: 30px;
+    }
+    .Btn-kakomi{
+      display: flex;
+      width: 50%;
+      margin: 0 auto;
+    }
+    
+}
+
