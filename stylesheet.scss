@@ -171,15 +171,7 @@ html,body{
   transform: translate(0,75px);
   transition: all .4s ease-out;
 }
-.flex-skin .effect:nth-of-type(1){
-  transition-delay: .2s;
-}
-.flex-skin .effect:nth-of-type(2){
-  transition-delay: .4s;
-}
-.flex-skin .effect:nth-of-type(3){
-  transition-delay: .6s;
-}
+
 .effect-scroll{
   opacity: 1;
  transform:translate(0,0);
@@ -263,6 +255,9 @@ font-family: fantasy;
     background-color: black;
    padding: 0;
 }
+.shian{
+  background-color: black;
+}
 
 
 
@@ -295,7 +290,15 @@ margin-bottom: 30px;
     background-image: url('image/back.jpg');
     background-size: contain;
   }
-  .endBtn,.endBtn2{
+
+
+  .shianBack{
+    background-image: url('image/teito.jpg');
+    background-size: contain;
+  }
+
+
+  .endBtn,.endBtn2,.endBtn3{
     user-select: none;
     text-align: center;
     padding: 0 20px 0 20px;
@@ -329,11 +332,17 @@ h4{
     left: 0px;
     background-color: rgba(255, 250, 240, 0.712);
 }
-.bg1,.bg2,.bg3,.bg4,.bg5,.bg6,.bg7,.bg8,.bg9,.bg10,.bg11,.bg12,.bg13,
+.bgs,.bgs14,.bg1,.bg2,.bg3,.bg4,.bg5,.bg6,.bg7,.bg8,.bg9,.bg10,.bg11,.bg12,.bg13,
 .bg14,.bg15,.bg16,.bg17,.bg18,.bg19,.bg20,
 .bgk1,.bgk2,.bgk3,.bgk4,.bgk5,.bgk6,.bgk7,.bgk8,.bgk9,.bgk10,
 .bgk11,.bgk12,.bgk13,.bgk14,.bgk15,.bgk16,.bgk17,.bgk18,.bgk19,.bgk20{
   background-size: contain;
+}
+.bgs{
+  background-image: url('image/bgs.jpg');
+}
+.bgs14{
+  background-image: url('image/bgs14.jpg');
 }
 .bg1{
   background-image: url('image/bg1.jpg');
@@ -543,6 +552,15 @@ h4{
   .image{
     width: 100%;
     height:300px;
+}
+.flex-skin .effect:nth-of-type(1){
+  transition-delay: .2s;
+}
+.flex-skin .effect:nth-of-type(2){
+  transition-delay: .4s;
+}
+.flex-skin .effect:nth-of-type(3){
+  transition-delay: .6s;
 }
 
 

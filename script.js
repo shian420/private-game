@@ -35,7 +35,7 @@ var newtime3=[];
 
 
 var lastFlg2=true;
-var lastflg3=true;
+var lastFlg3=true;
 
 var images=[];
 var images2=[];
@@ -88,6 +88,26 @@ var kaguyaSE=[
 ];
 
 var shianSE=[
+  "voice/shian1.wav",
+  "voice/shian2.wav",
+  "voice/shian3.wav",
+  "voice/shian4.wav",
+  "voice/shian5.wav",
+  "voice/shian6.wav",
+  "voice/shian7.wav",
+  "voice/shian8.wav",
+  "voice/shian9.wav",
+  "voice/shian10.wav",
+  "voice/shian11.wav",
+  "voice/shian12.wav",
+  "voice/shian13.wav",
+  "voice/shian14.wav",
+  "voice/shian15.wav",
+  "voice/shian16.wav",
+  "voice/shian17.wav",
+  "voice/shian18.wav",
+  "voice/shian19.wav",
+  "voice/shian20.wav"
 ];
 
 const finishBtn3=document.getElementById('finish3');
@@ -144,6 +164,7 @@ $(function(){
 for(var iij=1;iij<=20;iij++){
   images.push(iij);
   images2.push(iij);
+  images3.push(iij);
 }
 
 
@@ -157,7 +178,7 @@ const cardBox=document.getElementById('cardBox');
 
 const titleMc=new Audio('harumodoki.mp3');
 const endSE=new Audio();
-var endBGM=['megumi.mp3','kaguya.mp3'];
+var endBGM=['megumi.mp3','kaguya.mp3','tiruno.wav'];
 
 
 //ここからいろは編
@@ -203,7 +224,7 @@ $('.kaguya').on('click',function(){
 //ここからオールスター編
 $('.shian').on('click',function(){
 
-  classname="shianback";
+  classname="shianBack";
   kaguyaflg=false;
   irohaflg=false;
   shianflg=true;
@@ -343,6 +364,11 @@ if(irohaflg){
 }else{
   text="bgs";
 }
+if(shianflg){
+  if(div.number==13){//numberは0から9までしかない
+    text="bgs14";
+  }
+}
 
 if(timerFlg) return;
 
@@ -360,10 +386,16 @@ if(timerFlg2){
      sound.pause();
    }
 
-  if(div.innerHTML == ""){//もし裏なら
-  div.classList.add(text + soimgArr[1][div.number]);
-  div.classList.remove(classname);
-  div.innerHTML=div.number;
+  if(div.innerHTML == ""){
+    if(shianflg){
+      div.classList.add(text);
+      div.classList.remove(classname);
+      div.innerHTML=div.number;
+    }else{
+      div.classList.add(text + soimgArr[1][div.number]);
+      div.classList.remove(classname);
+      div.innerHTML=div.number;
+    }//もし裏なら
 
   sound=new Audio(soimgArr[0][div.number]);
   sound.play();
