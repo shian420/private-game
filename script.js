@@ -41,6 +41,8 @@ var images=[];
 var images2=[];
 var images3=[];
 
+var allvoiceC=1;
+
 var soundArr=[
   'voice/iroha1.mp3',
   'voice/iroha2.mp3',
@@ -109,32 +111,39 @@ var shianSE=[
   "voice/shian19.wav",
   "voice/shian20.wav"
 ];
-const soundoj=new Audio();
-
-const shianSound=document.getElementById('shianSound');
-const shianvoice=document.getElementById('shianvoice');
-var playlistC;
+const allS=document.getElementById('count');
 
 const finishBtn3=document.getElementById('finish3');
+const shianSound=document.getElementById('shianSound');
+const shianvoice=document.getElementById('shianvoice');
+
+var playlistC;
 
 finishBtn3.addEventListener('click',function(){
+
   endSE.src=endBGM[2];
   endSE.load();
   endSE.loop=true;
   endSE.play();
 
   shianSound.addEventListener('click',()=>{
+    const soundoj=new Audio();
     endSE.pause();
-    soundoj.pause();
     playlistC=0;
+    allvoiceC=1;
 
     soundoj.src=shianSE[playlistC];
     soundoj.play();
+    allS.innerHTML="voice " + allvoiceC;
 
     soundoj.addEventListener('ended',()=>{
       playlistC++;
+      allvoiceC++;
       soundoj.src=shianSE[playlistC];
       soundoj.play();
+      if(allvoiceC < 21){
+        allS.innerHTML="voice " + allvoiceC;
+      }
     });
   });
 
@@ -151,6 +160,8 @@ $(function(){
 });
 });
 //ここまでシアン
+const allSK=document.getElementById('countK');
+
 const finishBtn2=document.getElementById('finished');
 const kaguyaSound=document.getElementById('kaguyaSound');
 const kaguyavoice=document.getElementById('kaguyavoice');
@@ -162,19 +173,28 @@ finishBtn2.addEventListener('click',function(){
   endSE.loop=true;
   endSE.play();
 
-  irohaSound.addEventListener('click',()=>{
+  kaguyaSound.addEventListener('click',()=>{
     const kagS=new Audio();
+
     endSE.pause();
     kagS.pause();
     playlistC=0;
+    allvoiceC=1;
 
     kagS.src=kaguyaSE[playlistC];
     kagS.play();
+    allSK.innerHTML="voice " + allvoiceC;
 
     kagS.addEventListener('ended',()=>{
       playlistC++;
+      allvoiceC++;
+
       kagS.src=kaguyaSE[playlistC];
-    kagS.play();
+      kagS.play();
+
+    if(allvoiceC < 21){
+      allSK.innerHTML="voice " + allvoiceC;
+    }
     });
   });
 
@@ -191,7 +211,7 @@ $(function(){
 });
 });
 //ここまでかぐや
-
+const allSI=document.getElementById('countI');
 
 const finishBtn=document.getElementById('finish');
 const irohaSound=document.getElementById('irohaSound');
@@ -206,17 +226,26 @@ finishBtn.addEventListener('click',function(){
 
   irohaSound.addEventListener('click',()=>{
     const iroS=new Audio();
+
     endSE.pause();
     iroS.pause();
     playlistC=0;
+    allvoiceC=1;
 
     iroS.src=soundArr[playlistC];
     iroS.play();
+    allSI.innerHTML="voice " + allvoiceC;
 
     iroS.addEventListener('ended',()=>{
       playlistC++;
+      allvoiceC++;
+
       iroS.src=soundArr[playlistC];
-    iroS.play();
+      iroS.play();
+
+    if(allvoiceC < 21){
+      allSI.innerHTML="voice " + allvoiceC;
+    }
     });
   });
 

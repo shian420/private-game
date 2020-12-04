@@ -659,7 +659,8 @@ h4 {
   height: 100px;
   background-color: black;
   border: solid 2px white;
-  margin: 50px auto;
+  margin: 0 auto;
+  margin-top: 50px;
   text-align: center;
   color: white;
   line-height: 100px;
@@ -673,6 +674,17 @@ h4 {
 
 .shianplay:hover {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.countS {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.countK {
+  color: white;
 }
 
 .img {
