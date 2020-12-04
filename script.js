@@ -109,6 +109,11 @@ var shianSE=[
   "voice/shian19.wav",
   "voice/shian20.wav"
 ];
+const soundoj=new Audio();
+
+const shianSound=document.getElementById('shianSound');
+const shianvoice=document.getElementById('shianvoice');
+var playlistC;
 
 const finishBtn3=document.getElementById('finish3');
 
@@ -118,6 +123,26 @@ finishBtn3.addEventListener('click',function(){
   endSE.loop=true;
   endSE.play();
 
+  shianSound.addEventListener('click',()=>{
+    endSE.pause();
+    soundoj.pause();
+    playlistC=0;
+
+    soundoj.src=shianSE[playlistC];
+    soundoj.play();
+
+    soundoj.addEventListener('ended',()=>{
+      playlistC++;
+      soundoj.src=shianSE[playlistC];
+      soundoj.play();
+    });
+  });
+
+  shianvoice.addEventListener('click',()=>{
+    soundoj.pause();
+    endSE.play();
+  });
+
 $(function(){
   $('#cardnone').slideUp(1000);
   $('#finish3').hide();
@@ -125,14 +150,38 @@ $(function(){
   $('.close').remove();
 });
 });
-
+//ここまでシアン
 const finishBtn2=document.getElementById('finished');
+const kaguyaSound=document.getElementById('kaguyaSound');
+const kaguyavoice=document.getElementById('kaguyavoice');
 
+//かぐや
 finishBtn2.addEventListener('click',function(){
   endSE.src=endBGM[1];
   endSE.load();
   endSE.loop=true;
   endSE.play();
+
+  irohaSound.addEventListener('click',()=>{
+    const kagS=new Audio();
+    endSE.pause();
+    kagS.pause();
+    playlistC=0;
+
+    kagS.src=kaguyaSE[playlistC];
+    kagS.play();
+
+    kagS.addEventListener('ended',()=>{
+      playlistC++;
+      kagS.src=kaguyaSE[playlistC];
+    kagS.play();
+    });
+  });
+
+  kaguyavoice.addEventListener('click',()=>{
+    kagS.pause();
+    endSE.play();
+  });
 
 $(function(){
   $('#cardnone').slideUp(1000);
@@ -141,9 +190,12 @@ $(function(){
   $('.close').remove();
 });
 });
+//ここまでかぐや
 
 
 const finishBtn=document.getElementById('finish');
+const irohaSound=document.getElementById('irohaSound');
+const irohavoice=document.getElementById('irohavoice');
 
 finishBtn.addEventListener('click',function(){
 
@@ -151,6 +203,27 @@ finishBtn.addEventListener('click',function(){
   endSE.load();
   endSE.loop=true;
   endSE.play();
+
+  irohaSound.addEventListener('click',()=>{
+    const iroS=new Audio();
+    endSE.pause();
+    iroS.pause();
+    playlistC=0;
+
+    iroS.src=soundArr[playlistC];
+    iroS.play();
+
+    iroS.addEventListener('ended',()=>{
+      playlistC++;
+      iroS.src=soundArr[playlistC];
+    iroS.play();
+    });
+  });
+
+  irohavoice.addEventListener('click',()=>{
+    iroS.pause();
+    endSE.play();
+  });
 
 $(function(){
   $('#cardnone').slideUp(1000);
@@ -361,13 +434,10 @@ if(irohaflg){
   text="bg";
 }else if(kaguyaflg){
   text="bgk";
+}else if(soimgArr[0][div.number] == "voice/shian14.wav"){
+  text="bgs14";
 }else{
   text="bgs";
-}
-if(shianflg){
-  if(div.number==13){//numberは0から9までしかない
-    text="bgs14";
-  }
 }
 
 if(timerFlg) return;
@@ -531,6 +601,9 @@ if(newtime[0] === timearr[0]){
 }
 flg=false;
 }
+
+//オールスターサウンド
+
 
 //タイム更新と配列削除追加
 function newRecord(timearr,newtime){
