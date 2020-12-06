@@ -41,7 +41,9 @@ var images=[];
 var images2=[];
 var images3=[];
 
+var playlistC=0;
 var allvoiceC=1;
+var Sflg=false;
 
 var soundArr=[
   'voice/iroha1.mp3',
@@ -111,13 +113,13 @@ var shianSE=[
   "voice/shian19.wav",
   "voice/shian20.wav"
 ];
+
+var kagS=new Audio();
 const allS=document.getElementById('count');
 
 const finishBtn3=document.getElementById('finish3');
 const shianSound=document.getElementById('shianSound');
 const shianvoice=document.getElementById('shianvoice');
-
-var playlistC;
 
 finishBtn3.addEventListener('click',function(){
 
@@ -127,30 +129,41 @@ finishBtn3.addEventListener('click',function(){
   endSE.play();
 
   shianSound.addEventListener('click',()=>{
-    const soundoj=new Audio();
-    endSE.pause();
-    playlistC=0;
-    allvoiceC=1;
+    if(Sflg){
+      soundoj.pause();
+      Sflg=false;
+    }else{
 
-    soundoj.src=shianSE[playlistC];
-    soundoj.play();
-    allS.innerHTML="voice " + allvoiceC;
+      soundoj=new Audio();
 
-    soundoj.addEventListener('ended',()=>{
-      playlistC++;
-      allvoiceC++;
+      endSE.pause();
+      playlistC=0;
+      allvoiceC=1;
+
       soundoj.src=shianSE[playlistC];
       soundoj.play();
+      Sflg=true;
+      allS.innerHTML="voice " + allvoiceC;
+
+      soundoj.addEventListener('ended',()=>{
+        playlistC++;
+        allvoiceC++;
+
+        soundoj.src=shianSE[playlistC];
+        soundoj.play();
+
       if(allvoiceC < 21){
         allS.innerHTML="voice " + allvoiceC;
       }
     });
-  });
+  }
 
   shianvoice.addEventListener('click',()=>{
     soundoj.pause();
     endSE.play();
   });
+});
+
 
 $(function(){
   $('#cardnone').slideUp(1000);
@@ -160,6 +173,7 @@ $(function(){
 });
 });
 //ここまでシアン
+var kagS=new Audio();
 const allSK=document.getElementById('countK');
 
 const finishBtn2=document.getElementById('finished');
@@ -174,34 +188,41 @@ finishBtn2.addEventListener('click',function(){
   endSE.play();
 
   kaguyaSound.addEventListener('click',()=>{
-    const kagS=new Audio();
+    if(Sflg){
+      kagS.pause();
+      Sflg=false;
+    }else{
 
-    endSE.pause();
-    kagS.pause();
-    playlistC=0;
-    allvoiceC=1;
+      kagS=new Audio();
 
-    kagS.src=kaguyaSE[playlistC];
-    kagS.play();
-    allSK.innerHTML="voice " + allvoiceC;
-
-    kagS.addEventListener('ended',()=>{
-      playlistC++;
-      allvoiceC++;
+      endSE.pause();
+      playlistC=0;
+      allvoiceC=1;
 
       kagS.src=kaguyaSE[playlistC];
       kagS.play();
+      Sflg=true;
+      allSK.innerHTML="voice " + allvoiceC;
+
+      kagS.addEventListener('ended',()=>{
+        playlistC++;
+        allvoiceC++;
+
+        kagS.src=kaguyaSE[playlistC];
+        kagS.play();
 
     if(allvoiceC < 21){
       allSK.innerHTML="voice " + allvoiceC;
     }
     });
-  });
+  }
 
   kaguyavoice.addEventListener('click',()=>{
     kagS.pause();
     endSE.play();
   });
+});
+
 
 $(function(){
   $('#cardnone').slideUp(1000);
@@ -211,6 +232,9 @@ $(function(){
 });
 });
 //ここまでかぐや
+
+var iroS=new Audio();
+
 const allSI=document.getElementById('countI');
 
 const finishBtn=document.getElementById('finish');
@@ -225,15 +249,20 @@ finishBtn.addEventListener('click',function(){
   endSE.play();
 
   irohaSound.addEventListener('click',()=>{
-    const iroS=new Audio();
+    if(Sflg){
+      iroS.pause();
+      Sflg=false;
+    }else{
+
+    iroS=new Audio();
 
     endSE.pause();
-    iroS.pause();
     playlistC=0;
     allvoiceC=1;
 
     iroS.src=soundArr[playlistC];
     iroS.play();
+    Sflg=true;
     allSI.innerHTML="voice " + allvoiceC;
 
     iroS.addEventListener('ended',()=>{
@@ -247,12 +276,14 @@ finishBtn.addEventListener('click',function(){
       allSI.innerHTML="voice " + allvoiceC;
     }
     });
-  });
+  }
 
   irohavoice.addEventListener('click',()=>{
     iroS.pause();
     endSE.play();
   });
+});
+
 
 $(function(){
   $('#cardnone').slideUp(1000);
@@ -293,6 +324,8 @@ $('.iroha').on('click',function(){
   pageEffect();
 
   if(titleMcflg2){
+    kagS.pause();
+    iroS.pause();
     endSE.pause();
     endSE.currentTime=0;
   }
@@ -312,6 +345,8 @@ $('.kaguya').on('click',function(){
   irohaflg=false;
 
   if(titleMcflg2){
+    kagS.pause();
+    iroS.pause();
     endSE.pause();
     endSE.currentTime=0;
   }
@@ -334,6 +369,7 @@ $('.shian').on('click',function(){
   pageEffect();
 
   if(titleMcflg2){
+    soundoj.pause();
     endSE.pause();
     endSE.currentTime=0;
   }
